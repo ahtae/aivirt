@@ -1,13 +1,27 @@
-#play-again-button {
-  background-color: rgb(71, 192, 71);
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 3vmin;
-}
-
 #buttons-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin-top: 2vmin;
+}
+
+#reset-button {
+  background-color: rgba(0, 39, 214, 0.802);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3vmin;
+}
+
+#end-game-button {
+  background-color: rgba(214, 0, 0, 0.802);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3vmin;
+}
+
+#check-button {
+  background-color: rgba(169, 4, 224, 0.802);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3vmin;
 }
