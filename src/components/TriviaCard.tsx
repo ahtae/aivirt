@@ -4,12 +4,15 @@ import * as _ from 'lodash';
 import MenuItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { Trivia } from '../types';
+import './TriviaCard.css';
 
 type TriviaCardProps = {
   trivia: Trivia;
   handleChoiceClick: (choice: string | null) => void;
   selectedChoice: null | string;
 };
+
+const listItemStyle = { display: 'flex', justifyContent: 'center' };
 
 const TriviaCard: React.FC<TriviaCardProps> = ({
   handleChoiceClick,
@@ -31,7 +34,7 @@ const TriviaCard: React.FC<TriviaCardProps> = ({
   }, [trivia.question]);
 
   return (
-    <div className="trivia">
+    <div id="trivia">
       <h1>{trivia.question}</h1>
       <List>
         {shuffledChoices.map((choice) => (
@@ -41,7 +44,7 @@ const TriviaCard: React.FC<TriviaCardProps> = ({
             onClick={() => handleChoiceClick(choice)}
             selected={selectedChoice === choice}
           >
-            <ListItemText primary={choice} />
+            <ListItemText primary={choice} style={listItemStyle} />
           </MenuItem>
         ))}
       </List>
