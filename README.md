@@ -1,46 +1,76 @@
-# Getting Started with Create React App
+# aivirt
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+aivirt is a web application that displays a variety of trivia questions as well as multiple-choice answers to select from. This application is intended to assist users in mastering trivia. It was built using TypeScript and React and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- You have installed the latest version of [Node.js](https://nodejs.org/en/) and [npm](https://www.npmjs.com).
+- You have a Windows/Linux/Mac machine.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Installing
 
-### `npm test`
+To get acclimated, follow the steps below:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Fork and clone this repository.
+2. Run cd aivirt and npm install.
 
-### `npm run build`
+## Running the tests
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Explain how to run the automated tests for this system
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Break down into end to end tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Explain what these tests test and why
 
-### `npm run eject`
+```
+Give an example
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### And coding style tests
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Explain what these tests test and why
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+Give an example
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Deployment
 
-## Learn More
+Add additional notes about how to deploy this on a live system
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Built With
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [React](https://reactjs.org) - The JavaScript library used for creating the user interfaces.
+- [npm](https://www.npmjs.com) - The package manager used to manage package dependencies.
+- [ESlint](https://eslint.org) - The tool used to maintain code quality.
+- [Prettier](https://prettier.io) - The tool used to format code.
+- [React Kawaii](https://react-kawaii.now.sh/#/React%20Kawaii) - The JavaScript library that provides cute React SVG Components.
+- [React Confetti](https://github.com/alampros/react-confetti) - The JavaScript library used to create confetti.
+- [Lodash](https://lodash.com) - The JavaScript library that provides utility functions.
+
+## Contributing
+
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/hackerDelta/capstone/tags).
+
+## Authors
+
+- **Kristy Li** - _Initial work_ [ahtae](https://github.com/ahtae)
+
+See also the list of [contributors](https://github.com/ahtae/aivirt/graphs/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+### Acknowledgements
+
+- Icons made by [Freepik](http://www.freepik.com/) from [www.flaticon.com](https://www.flaticon.com/).
+- Background made by [SVGBackgrounds](SVGBackgrounds.com.)
