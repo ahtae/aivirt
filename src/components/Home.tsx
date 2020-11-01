@@ -7,7 +7,7 @@ import { Cat } from 'react-kawaii';
 const cardStyle = {
   width: '65vw',
   transitionDuration: '0.3s',
-  height: '40vw',
+  height: '45vw',
   border: '2px black solid',
   display: 'flex',
   alignItems: 'center',
