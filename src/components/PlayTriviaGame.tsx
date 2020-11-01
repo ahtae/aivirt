@@ -5,20 +5,7 @@ import TriviaCard from './TriviaCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Results from './Results';
 import './PlayTriviaGame.css';
-
-const listOfTrivia = [
-  {
-    question: 'What was Tandem previous name?',
-    incorrect: ['Tandem', 'Burger Shack', 'Extraordinary Humans'],
-    correct: 'Devmynd',
-  },
-  {
-    question:
-      "In Shakespeare's play Julius Caesar, Caesar's last words were...",
-    incorrect: ['Iacta alea est!', 'Vidi, vini, vici', 'Aegri somnia vana'],
-    correct: 'Et tu, Brute?',
-  },
-];
+import listOfTrivia from '../data/trivia.json';
 
 const alertStyle = {
   marginTop: '1vmin',
