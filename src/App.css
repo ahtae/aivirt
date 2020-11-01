@@ -11,9 +11,3 @@ body {
   align-self: center;
 }
 
-#get-started-button {
-  background-color: rgb(71, 192, 71);
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 3vmin;
-}
