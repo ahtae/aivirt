@@ -40,7 +40,7 @@ const Home: React.FC = () => {
           setHasClickedGetStartedButton(true);
         }}
       >
-        Get Started
+        get started
       </Button>
     </div>
   ) : (
