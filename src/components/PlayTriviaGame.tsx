@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import TriviaCard from './TriviaCard';
+import { makeStyles } from '@material-ui/core/styles';
 import Results from './Results';
 import './PlayTriviaGame.css';
 
@@ -18,6 +19,19 @@ const listOfTrivia = [
     correct: 'Et tu, Brute?',
   },
 ];
+
+const alertStyle = {
+  marginTop: '1vmin',
+  marginLeft: '1vmin',
+  marginRight: '1vmin',
+  borderStyle: 'bold',
+};
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1.5),
+  },
+}));
 
 const generateRandomNumber = () => {
   return Math.floor(Math.random() * listOfTrivia.length);
@@ -50,6 +64,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
   const [selectedChoice, setSelectedChoice] = useState<null | string>(null);
   const [hasCheckedChoice, setHasCheckedChoice] = useState(false);
   const [showResults, setShowResults] = useState(false);
+  const classes = useStyles();
 
   const generateUniqueRandomNumber = () => {
     let randomNumber = generateRandomNumber();
@@ -113,7 +128,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
   const contents = !selectedTrivia ? (
     <h1>Loading...</h1>
   ) : showResults ? (
-    <Results score={score} />
+    <Results score={score} totalNumberOfQuestions={listOfTrivia.length} />
   ) : (
     <div id="trivia-container">
       <TriviaCard
@@ -123,11 +138,11 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
       />
       {hasCorrectAnswer !== null ? (
         hasCorrectAnswer ? (
-          <Alert variant="outlined" severity="success">
+          <Alert variant="outlined" severity="success" style={alertStyle}>
             Correct answer!
           </Alert>
         ) : (
-          <Alert variant="outlined" severity="error">
+          <Alert variant="outlined" severity="error" style={alertStyle}>
             {`Incorrect answer! The correct answer is '${selectedTrivia.correct}'.`}
           </Alert>
         )
@@ -135,6 +150,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
       <div id="buttons-container">
         <Button
           id="get-started-button"
+          className={classes.button}
           variant="contained"
           color="secondary"
           onClick={() => {
@@ -145,6 +161,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
         </Button>
         <Button
           id="get-started-button"
+          className={classes.button}
           variant="contained"
           color="secondary"
           onClick={handleEndGameClick}
@@ -154,6 +171,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
 
         <Button
           id="check-button"
+          className={classes.button}
           variant="contained"
           color="secondary"
           onClick={handleCheckClick}
@@ -163,6 +181,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
         </Button>
         <Button
           id="get-started-button"
+          className={classes.button}
           variant="contained"
           color="secondary"
           onClick={
