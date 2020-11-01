@@ -48,6 +48,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
   score,
   increaseScore,
   setHasClickedGetStartedButton,
+  resetScore,
 }) => {
   const [indexOfTrivia, setIndexOfTrivia] = useState(generateRandomNumber());
   const [alreadySeen, setAlreadySeen] = useState({
@@ -78,6 +79,54 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
     return randomNumber;
   };
 
+  const handleResetClick = () => {
+    if (window.confirm('Are you sure you would like to reset the game?')) {
+      resetScore();
+      setIndexOfTrivia(generateRandomNumber());
+      setAlreadySeen({
+        [`${indexOfTrivia}`]: true,
+      });
+      setSelectedTrivia(listOfTrivia[indexOfTrivia]);
+      setAnswered(0);
+      setHasCorrectAnswer(null);
+      setHasCheckedChoice(false);
+      setSelectedChoice(null);
+      setHasClickedChoice(false);
+      setShowResults(false);
+    }
+  };
+
+  const handlePlayAgainClick = () => {
+      resetScore();
+      setIndexOfTrivia(generateRandomNumber());
+      setAlreadySeen({
+        [`${indexOfTrivia}`]: true,
+      });
+      setSelectedTrivia(listOfTrivia[indexOfTrivia]);
+      setAnswered(0);
+      setHasCorrectAnswer(null);
+      setHasCheckedChoice(false);
+      setSelectedChoice(null);
+      setHasClickedChoice(false);
+      setShowResults(false);
+  };
+
+  const handleGoBackHomeClick = () => {
+    resetScore();
+    setIndexOfTrivia(generateRandomNumber());
+    setAlreadySeen({
+      [`${indexOfTrivia}`]: true,
+    });
+    setSelectedTrivia(listOfTrivia[indexOfTrivia]);
+    setAnswered(0);
+    setHasCorrectAnswer(null);
+    setHasCheckedChoice(false);
+    setSelectedChoice(null);
+    setHasClickedChoice(false);
+    setShowResults(false);
+    setHasClickedGetStartedButton(false);
+};
+
   const handleChoiceClick = (choice: string | null) => {
     if (!hasCheckedChoice) {
       setHasClickedChoice(true);
@@ -94,7 +143,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
       });
       setSelectedTrivia(listOfTrivia[indexOfTrivia]);
       setAnswered(0);
-      setHasCorrectAnswer(false);
+      setHasCorrectAnswer(null);
       setHasCheckedChoice(false);
       setSelectedChoice(null);
       setHasClickedChoice(false);
@@ -128,7 +177,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
   const contents = !selectedTrivia ? (
     <h1>Loading...</h1>
   ) : showResults ? (
-    <Results score={score} totalNumberOfQuestions={listOfTrivia.length} />
+    <Results score={score} totalNumberOfQuestions={listOfTrivia.length} handlePlayAgainClick={handlePlayAgainClick} handleGoBackHomeClick ={handleGoBackHomeClick} />
   ) : (
     <div id="trivia-container">
       <TriviaCard
@@ -149,18 +198,16 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
       ) : null}
       <div id="buttons-container">
         <Button
-          id="get-started-button"
+          id="reset-button"
           className={classes.button}
           variant="contained"
           color="secondary"
-          onClick={() => {
-            console.log('yup');
-          }}
+          onClick={handleResetClick}
         >
           reset
         </Button>
         <Button
-          id="get-started-button"
+          id="end-game-button"
           className={classes.button}
           variant="contained"
           color="secondary"
