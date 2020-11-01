@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import owlLogo from '../assets/images/owlLogo.png';
 import { Button, Card, Grid } from '@material-ui/core';
 import PlayTriviaGame from './PlayTriviaGame';
 import './Home.css';
+import { Cat } from 'react-kawaii';
 
 const cardStyle = {
   width: '65vw',
   transitionDuration: '0.3s',
-  height: '35vw',
+  height: '40vw',
   border: '2px black solid',
   display: 'flex',
   alignItems: 'center',
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
 
   const content = !hasClickedGetStartedButton ? (
     <div>
-      <img className="App-logo" src={owlLogo} alt="Owl Logo" />
+      <Cat size={200} mood="excited" color="#596881" />
       <h1>aivirt</h1>
       <Button
         id="get-started-button"
@@ -55,11 +55,9 @@ const Home: React.FC = () => {
   return (
     <Grid
       container
-      spacing={0}
-      direction="column"
-      alignItems="center"
       justify="center"
-      style={{ height: '100vh' }}
+      alignItems="center"
+      style={{ minHeight: '100vh', textAlign: 'center' }}
     >
       <Grid item>
         <Card style={cardStyle}>{content}</Card>
