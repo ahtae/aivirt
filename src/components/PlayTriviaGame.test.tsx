@@ -1,9 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 import { render } from '@testing-library/react';
-import { fireEvent } from '@testing-library/react';
 import PlayTriviaGame from './PlayTriviaGame';
-// import { shallow } from 'enzyme';
 
 describe('PlayTriviaGame Component', () => {
   const score = 0;
