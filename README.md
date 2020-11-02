@@ -19,30 +19,11 @@ To get acclimated, follow the steps below:
 
 1. Fork and clone this repository.
 2. Run cd aivirt and npm install.
+3. Run npm start and go to http://localhost:3000/.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
+To run the tests, run npm test.
 
 ## Built With
 
@@ -62,6 +43,14 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/hackerDelta/capstone/tags).
 
+## Future Features
+
+- Implement SRS learning with the application, so that the user will get quizzed by it dependening on the difficulty of a trivia question.
+- Maintain session state, even if the user closes the browser tab.
+- Convert it to a multi-player training game.
+- Provide music to help the user focus (if they so desire).
+- Allow the user to heart certain trivia questions.
+
 ## Authors
 
 - **Kristy Li** - _Initial work_ [ahtae](https://github.com/ahtae)
@@ -70,7 +59,7 @@ See also the list of [contributors](https://github.com/ahtae/aivirt/graphs/contr
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ### Acknowledgements
 
