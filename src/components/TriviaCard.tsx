@@ -39,12 +39,13 @@ const TriviaCard: React.FC<TriviaCardProps> = ({
       <List>
         {shuffledChoices.map((choice) => (
           <MenuItem
+            className="choice"
             button
             key={choice}
             onClick={() => handleChoiceClick(choice)}
             selected={selectedChoice === choice}
           >
-            <ListItemText className="choice" primary={choice} style={listItemStyle} />
+            <ListItemText primary={choice} style={listItemStyle} />
           </MenuItem>
         ))}
       </List>
