@@ -65,4 +65,5 @@ const Home: React.FC = () => {
     </Grid>
   );
 };
+
 export default Home;
