@@ -1,9 +1,14 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App component', () => {
+  test('renders content', () => {
+    const component = render(<App />);
+    const button = component.container.querySelector('#get-started-button');
+
+    expect(component.container).toHaveTextContent('aivirt');
+    expect(button).toHaveTextContent('get started');
+  });
 });
