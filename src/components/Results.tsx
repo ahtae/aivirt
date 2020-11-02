@@ -34,11 +34,11 @@ const Results: React.FC<ResultsProps> = ({
     <Cat size={200} mood="sad" color="#596881" />
   );
   const resultFeedback = hasGoodScore ? (
-    <h1>
+    <h1 id="feedback">
       Good job! Your score was {score}/{totalNumberOfQuestions}.
     </h1>
   ) : (
-    <h1>
+    <h1 id="feedback">
       Good effort! Your score was {score}/{totalNumberOfQuestions}.
     </h1>
   );
