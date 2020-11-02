@@ -35,7 +35,7 @@ const TriviaCard: React.FC<TriviaCardProps> = ({
 
   return (
     <div id="trivia">
-      <h1>{trivia.question}</h1>
+      <h1 id="trivia-question">{trivia.question}</h1>
       <List>
         {shuffledChoices.map((choice) => (
           <MenuItem
@@ -44,7 +44,7 @@ const TriviaCard: React.FC<TriviaCardProps> = ({
             onClick={() => handleChoiceClick(choice)}
             selected={selectedChoice === choice}
           >
-            <ListItemText primary={choice} style={listItemStyle} />
+            <ListItemText className="choice" primary={choice} style={listItemStyle} />
           </MenuItem>
         ))}
       </List>
