@@ -5,7 +5,17 @@ import TriviaCard from './TriviaCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Results from './Results';
 import './PlayTriviaGame.css';
-import listOfTrivia from '../data/trivia.json';
+import trivia from '../data/trivia.json';
+import testTrivia from '../data/trivia.test.json';
+import { Trivia } from '../types';
+
+let listOfTrivia: Array<Trivia>;
+
+if (process.env.NODE_ENV === 'test') {
+  listOfTrivia = testTrivia;
+} else {
+  listOfTrivia = trivia;
+}
 
 const alertStyle = {
   marginTop: '1vmin',
@@ -84,18 +94,18 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
   };
 
   const handlePlayAgainClick = () => {
-      resetScore();
-      setIndexOfTrivia(generateRandomNumber());
-      setAlreadySeen({
-        [`${indexOfTrivia}`]: true,
-      });
-      setSelectedTrivia(listOfTrivia[indexOfTrivia]);
-      setAnswered(0);
-      setHasCorrectAnswer(null);
-      setHasCheckedChoice(false);
-      setSelectedChoice(null);
-      setHasClickedChoice(false);
-      setShowResults(false);
+    resetScore();
+    setIndexOfTrivia(generateRandomNumber());
+    setAlreadySeen({
+      [`${indexOfTrivia}`]: true,
+    });
+    setSelectedTrivia(listOfTrivia[indexOfTrivia]);
+    setAnswered(0);
+    setHasCorrectAnswer(null);
+    setHasCheckedChoice(false);
+    setSelectedChoice(null);
+    setHasClickedChoice(false);
+    setShowResults(false);
   };
 
   const handleGoBackHomeClick = () => {
@@ -112,7 +122,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
     setHasClickedChoice(false);
     setShowResults(false);
     setHasClickedGetStartedButton(false);
-};
+  };
 
   const handleChoiceClick = (choice: string | null) => {
     if (!hasCheckedChoice) {
@@ -164,7 +174,12 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
   const contents = !selectedTrivia ? (
     <h1>Loading...</h1>
   ) : showResults ? (
-    <Results score={score} totalNumberOfQuestions={listOfTrivia.length} handlePlayAgainClick={handlePlayAgainClick} handleGoBackHomeClick ={handleGoBackHomeClick} />
+    <Results
+      score={score}
+      totalNumberOfQuestions={listOfTrivia.length}
+      handlePlayAgainClick={handlePlayAgainClick}
+      handleGoBackHomeClick={handleGoBackHomeClick}
+    />
   ) : (
     <div id="trivia-container">
       <TriviaCard
@@ -214,7 +229,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
           check
         </Button>
         <Button
-          id="get-started-button"
+          id="next-button"
           className={classes.button}
           variant="contained"
           color="secondary"
