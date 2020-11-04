@@ -10,6 +10,7 @@ type TriviaCardProps = {
   trivia: Trivia;
   handleChoiceClick: (choice: string | null) => void;
   selectedChoice: null | string;
+  children: React.ReactNode;
 };
 
 const listItemStyle = { display: 'flex', justifyContent: 'center' };
@@ -18,6 +19,7 @@ const TriviaCard: React.FC<TriviaCardProps> = ({
   handleChoiceClick,
   trivia,
   selectedChoice,
+  children,
 }) => {
   const randomizeChoices = (choices: Array<string>) => {
     return _.shuffle(choices);
@@ -49,6 +51,7 @@ const TriviaCard: React.FC<TriviaCardProps> = ({
           </MenuItem>
         ))}
       </List>
+      {children}
     </div>
   );
 };

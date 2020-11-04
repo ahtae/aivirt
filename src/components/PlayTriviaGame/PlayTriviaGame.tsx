@@ -25,7 +25,7 @@ const alertStyle = {
 
 const useStyles = makeStyles((theme) => ({
   button: {
-    margin: theme.spacing(1.5),
+    margin: theme.spacing(2.0),
   },
 }));
 
@@ -185,7 +185,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
         trivia={selectedTrivia}
         selectedChoice={selectedChoice}
         handleChoiceClick={handleChoiceClick}
-      />
+      >
       {hasCorrectAnswer !== null ? (
         hasCorrectAnswer ? (
           <Alert variant="outlined" severity="success" style={alertStyle}>
@@ -242,6 +242,7 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
           next
         </Button>
       </div>
+      </TriviaCard>
     </div>
   );
 

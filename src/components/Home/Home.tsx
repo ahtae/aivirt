@@ -3,16 +3,31 @@ import { Button, Card, Grid } from '@material-ui/core';
 import { PlayTriviaGame } from '../index';
 import './Home.css';
 import { Cat } from 'react-kawaii';
+import { makeStyles } from '@material-ui/core/styles';
 
 const cardStyle = {
-  width: '65vw',
   transitionDuration: '0.3s',
-  height: '45vw',
   border: '2px black solid',
   display: 'flex',
   alignItems: 'center',
+  height: 'auto',
+  overflow: 'hidden',
   justifyContent: 'center',
+  width: 'auto',
+  minWidth: '80vw',
+  maxWidth: '80vw'
 };
+
+const useStyles = makeStyles(() => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    minWidth: '100vmin',
+    height: 'auto',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+  },
+}));
 
 const Home: React.FC = () => {
   const [hasClickedGetStartedButton, setHasClickedGetStartedButton] = useState(
@@ -27,6 +42,8 @@ const Home: React.FC = () => {
   const resetScore = () => {
     setScore(0);
   };
+
+  const classes = useStyles();
 
   const content = !hasClickedGetStartedButton ? (
     <div>
@@ -53,16 +70,18 @@ const Home: React.FC = () => {
   );
 
   return (
-    <Grid
-      container
-      justify="center"
-      alignItems="center"
-      style={{ minHeight: '100vh', textAlign: 'center' }}
-    >
-      <Grid item>
-        <Card style={cardStyle}>{content}</Card>
+    <div className={classes.root}>
+      <Grid
+        container
+        justify="center"
+        alignItems="center"
+        style={{ minHeight: '120vh', textAlign: 'center' }}
+      >
+        <Grid item>
+          <Card style={cardStyle}>{content}</Card>
+        </Grid>
       </Grid>
-    </Grid>
+    </div>
   );
 };
 
