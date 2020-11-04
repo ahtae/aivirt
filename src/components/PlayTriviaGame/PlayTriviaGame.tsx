@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
-import TriviaCard from './TriviaCard';
+import { TriviaCard, Results } from '../index';
 import { makeStyles } from '@material-ui/core/styles';
-import Results from './Results';
 import './PlayTriviaGame.css';
-import trivia from '../data/trivia.json';
-import testTrivia from '../data/trivia.test.json';
-import { Trivia } from '../types';
+import trivia from '../../data/trivia.json';
+import testTrivia from '../../data/trivia.test.json';
+import { Trivia } from '../../types';
 
 let listOfTrivia: Array<Trivia>;
 

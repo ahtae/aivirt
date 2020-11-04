@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Card, Grid } from '@material-ui/core';
-import PlayTriviaGame from './PlayTriviaGame';
+import { PlayTriviaGame } from '../index';
 import './Home.css';
 import { Cat } from 'react-kawaii';
 

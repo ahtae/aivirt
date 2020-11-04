@@ -3,7 +3,7 @@ import { List } from '@material-ui/core';
 import * as _ from 'lodash';
 import MenuItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Trivia } from '../types';
+import { Trivia } from '../../types';
 import './TriviaCard.css';
 
 type TriviaCardProps = {
