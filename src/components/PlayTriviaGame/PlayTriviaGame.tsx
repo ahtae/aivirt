@@ -75,51 +75,33 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
     return randomNumber;
   };
 
+  const resetGameState = () => {
+    resetScore();
+    setIndexOfTrivia(generateRandomNumber());
+    setAlreadySeen({
+      [`${indexOfTrivia}`]: true,
+    });
+    setSelectedTrivia(listOfTrivia[indexOfTrivia]);
+    setAnswered(0);
+    setHasCorrectAnswer(null);
+    setHasCheckedChoice(false);
+    setSelectedChoice(null);
+    setHasClickedChoice(false);
+    setShowResults(false);
+  };
+
   const handleResetClick = () => {
     if (window.confirm('Are you sure you would like to reset the game?')) {
-      resetScore();
-      setIndexOfTrivia(generateRandomNumber());
-      setAlreadySeen({
-        [`${indexOfTrivia}`]: true,
-      });
-      setSelectedTrivia(listOfTrivia[indexOfTrivia]);
-      setAnswered(0);
-      setHasCorrectAnswer(null);
-      setHasCheckedChoice(false);
-      setSelectedChoice(null);
-      setHasClickedChoice(false);
-      setShowResults(false);
+      resetGameState();
     }
   };
 
   const handlePlayAgainClick = () => {
-    resetScore();
-    setIndexOfTrivia(generateRandomNumber());
-    setAlreadySeen({
-      [`${indexOfTrivia}`]: true,
-    });
-    setSelectedTrivia(listOfTrivia[indexOfTrivia]);
-    setAnswered(0);
-    setHasCorrectAnswer(null);
-    setHasCheckedChoice(false);
-    setSelectedChoice(null);
-    setHasClickedChoice(false);
-    setShowResults(false);
+    resetGameState();
   };
 
   const handleGoBackHomeClick = () => {
-    resetScore();
-    setIndexOfTrivia(generateRandomNumber());
-    setAlreadySeen({
-      [`${indexOfTrivia}`]: true,
-    });
-    setSelectedTrivia(listOfTrivia[indexOfTrivia]);
-    setAnswered(0);
-    setHasCorrectAnswer(null);
-    setHasCheckedChoice(false);
-    setSelectedChoice(null);
-    setHasClickedChoice(false);
-    setShowResults(false);
+    resetGameState();
     setHasClickedGetStartedButton(false);
   };
 
@@ -132,17 +114,8 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
 
   const handleEndGameClick = () => {
     if (window.confirm('Are you sure you would like to end the game?')) {
+      resetGameState();
       setHasClickedGetStartedButton(false);
-      setIndexOfTrivia(generateRandomNumber());
-      setAlreadySeen({
-        [`${indexOfTrivia}`]: true,
-      });
-      setSelectedTrivia(listOfTrivia[indexOfTrivia]);
-      setAnswered(0);
-      setHasCorrectAnswer(null);
-      setHasCheckedChoice(false);
-      setSelectedChoice(null);
-      setHasClickedChoice(false);
     }
   };
 
@@ -186,62 +159,62 @@ const PlayTriviaGame: React.FC<PlayTriviaGameProps> = ({
         selectedChoice={selectedChoice}
         handleChoiceClick={handleChoiceClick}
       >
-      {hasCorrectAnswer !== null ? (
-        hasCorrectAnswer ? (
-          <Alert variant="outlined" severity="success" style={alertStyle}>
-            Correct answer!
-          </Alert>
-        ) : (
-          <Alert variant="outlined" severity="error" style={alertStyle}>
-            {`Incorrect answer! The correct answer is '${selectedTrivia.correct}'.`}
-          </Alert>
-        )
-      ) : null}
-      <div id="buttons-container">
-        <Button
-          id="reset-button"
-          className={classes.button}
-          variant="contained"
-          color="secondary"
-          onClick={handleResetClick}
-        >
-          reset
-        </Button>
-        <Button
-          id="end-game-button"
-          className={classes.button}
-          variant="contained"
-          color="secondary"
-          onClick={handleEndGameClick}
-        >
-          end game
-        </Button>
+        {hasCorrectAnswer !== null ? (
+          hasCorrectAnswer ? (
+            <Alert variant="outlined" severity="success" style={alertStyle}>
+              Correct answer!
+            </Alert>
+          ) : (
+            <Alert variant="outlined" severity="error" style={alertStyle}>
+              {`Incorrect answer! The correct answer is '${selectedTrivia.correct}'.`}
+            </Alert>
+          )
+        ) : null}
+        <div id="buttons-container">
+          <Button
+            id="reset-button"
+            className={classes.button}
+            variant="contained"
+            color="secondary"
+            onClick={handleResetClick}
+          >
+            reset
+          </Button>
+          <Button
+            id="end-game-button"
+            className={classes.button}
+            variant="contained"
+            color="secondary"
+            onClick={handleEndGameClick}
+          >
+            end game
+          </Button>
 
-        <Button
-          id="check-button"
-          className={classes.button}
-          variant="contained"
-          color="secondary"
-          onClick={handleCheckClick}
-          disabled={!hasClickedChoice || hasCheckedChoice}
-        >
-          check
-        </Button>
-        <Button
-          id="next-button"
-          className={classes.button}
-          variant="contained"
-          color="secondary"
-          onClick={
-            answered !== listOfTrivia.length
-              ? handleNextTriviaClick
-              : () => setShowResults(true)
-          }
-          disabled={!hasClickedChoice || !hasCheckedChoice}
-        >
-          next
-        </Button>
-      </div>
+          <Button
+            id="check-button"
+            className={classes.button}
+            variant="contained"
+            color="secondary"
+            onClick={handleCheckClick}
+            disabled={!hasClickedChoice || hasCheckedChoice}
+          >
+            check
+          </Button>
+          <Button
+            id="next-button"
+            className={classes.button}
+            variant="contained"
+            color="secondary"
+            onClick={
+              answered !== listOfTrivia.length
+                ? handleNextTriviaClick
+                : () => setShowResults(true)
+            }
+            disabled={!hasClickedChoice || !hasCheckedChoice}
+          >
+            next
+          </Button>
+        </div>
       </TriviaCard>
     </div>
   );
