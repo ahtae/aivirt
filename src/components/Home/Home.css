@@ -4,3 +4,10 @@
   font-weight: bold;
   font-size: 3vmin;
 }
+
+#review-button {
+  background-color: rgba(214, 0, 0, 0.802);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3vmin;
+}
