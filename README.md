@@ -2,6 +2,8 @@
 
 aivirt is a web application that displays a variety of trivia questions as well as multiple-choice answers to select from. This application is intended to assist users in mastering trivia. It was built using TypeScript and React and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+[Click here to go to the deployed application](https://frozen-woodland-05707.herokuapp.com)
+
 <img src="./aivirt.gif" width="800" height="500" alt="aivirt demo" />
 
 ## Getting Started
